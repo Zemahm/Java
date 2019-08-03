@@ -5,8 +5,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class LoadQuestionData {
-	private static LoadQuestionData questionData;
+public class Simpleton {
+	private static Simpleton simpleton;
 	private Scanner scanner;
 	
 	//To prevent outward instantiating 
@@ -15,11 +15,11 @@ public class LoadQuestionData {
 		
 	}
 	//Synchronised not used as it unneeded and would require a lock object 
-	public static LoadQuestionData getQuestionData() {
-		if(questionData == null) {
-			questionData = new LoadQuestionData();
+	public static Simpleton getSimpletonData() {
+		if(simpleton == null) {
+			simpleton = new Simpleton();
 		}
-		return questionData;
+		return simpleton;
 	}
 	
 	
@@ -32,7 +32,7 @@ public class LoadQuestionData {
 	//To setup scanner (uses asset)
 	private void setupScanner() {
 		try {
-		this.scanner = new Scanner(new File("questions.txt"));
+		this.scanner = new Scanner(new File("yourfilename.txt"));
 		}
 		catch(FileNotFoundException e){
 			System.err.println("File not found");
